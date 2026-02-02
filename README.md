@@ -1,73 +1,81 @@
-# React + TypeScript + Vite
+# Admin Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Admin dashboard built with React and TypeScript featuring a reusable table system and CRUD functionality.
 
-Currently, two official plugins are available:
+## ✨ Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project demonstrates how to build a scalable admin dashboard with a strong focus on:
 
-## React Compiler
+- clean architecture
+- type safety
+- reusable UI components
+- clear separation of responsibilities
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+The dashboard includes a fully reusable table component with configurable columns and action handling, designed to scale for real-world admin panels.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧩 Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 📊 Reusable generic table component
+- 🧱 Config-driven column system
+- ✏️ Edit / Delete actions (CRUD-ready)
+- 🧠 Strong TypeScript typing with generics
+- 🗂 Page-level state management
+- 🎨 Styled with Tailwind CSS
+- ⚡ Built with Vite for fast development
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠 Tech Stack
+
+- **React**
+- **TypeScript**
+- **Vite**
+- **Tailwind CSS**
+- **React Router**
+
+---
+
+## 🧠 Architecture Highlights
+
+- **Pages** manage data and state
+- **Components** focus on presentation only
+- **Reusable Table** is fully generic and data-agnostic
+- **Actions logic** is injected via configuration
+- **Type-safe column definitions** using discriminated unions
+
+This approach allows easy extension (new columns, new entities, backend integration) without refactoring core UI components.
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├─ app/ # App-level setup (router, layouts)
+├─ components/ # Reusable UI components
+├─ data/ # Mock data
+├─ pages/ # Route-level components
+├─ services/ # Business logic (future-ready)
+├─ types/ # Shared TypeScript models
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Install dependencies:
+
+```bash
+npm install
+
+#Run the development server:
+npm run dev
 ```
+
+## 📌 Notes
+
+This project is frontend-only and uses mock data to simulate CRUD flows.
+The architecture is designed to allow easy backend integration in the future.
+CRUD flows are implemented using local state to simulate real-world backend interactions.
