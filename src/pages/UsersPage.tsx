@@ -4,19 +4,41 @@ import { users } from "../data/users";
 import type { User } from "../types/user";
 
 const columns: Column<User>[] = [
-  { id: "id", label: "ID" },
-  { id: "name", label: "Name" },
-  { id: "email", label: "Email" },
-  { id: "role", label: "Role" },
+  { id: "id", label: "ID", type: "data" },
+  { id: "name", label: "Name", type: "data" },
+  { id: "email", label: "Email", type: "data" },
+  { id: "role", label: "Role", type: "data" },
   {
     id: "status",
     label: "Status",
     render: (value) => (value === "active" ? "🟢 Active" : "🔴 Inactive"),
+    type: "data",
   },
   {
     id: "createdAt",
     label: "CreatedAt",
     render: (value) => new Date(value as string).toLocaleDateString(),
+    type: "data",
+  },
+  {
+    type: "actions",
+    label: "actions",
+    actions: [
+      {
+        id: "edit",
+        label: "Edit",
+        callback: (row) => {
+          console.log("Edit", row.name);
+        },
+      },
+      {
+        id: "delete",
+        label: "Delete",
+        callback: (row) => {
+          console.log("Delete", row.name);
+        },
+      },
+    ],
   },
 ];
 
