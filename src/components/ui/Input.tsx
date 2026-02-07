@@ -13,6 +13,7 @@ const Input = ({ label, value, onChange, placeholder, type }: InputProps) => {
         {label}
       </label>
       <input
+        className="border-b-2"
         type={type}
         placeholder={placeholder}
         value={value}
