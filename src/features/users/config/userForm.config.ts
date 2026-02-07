@@ -1,4 +1,5 @@
-import type { User } from "../../types/user";
+import type { User } from "../../../types/user";
+
 
 interface SelectOptions<T extends string> {
   value: T;

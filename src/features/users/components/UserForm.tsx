@@ -1,15 +1,15 @@
-import type { User } from "../../types/user";
-import Button from "../ui/Button";
-import { userFormConfig } from "./userForm.config";
+import Button from "../../../components/ui/Button";
+import type { User } from "../../../types/user";
+import { userFormConfig } from "../config/userForm.config";
+import useUserForm from "../hooks/useUserForm";
 import UserFormField from "./UserFormField";
-import useUserForm from "./useUserForm";
 
 export type UseForm = {
   id: string;
   name: string;
   email: string;
-  role: "user" | "admin" | "";
-  status: "active" | "inactive" | "";
+  role: "user" | "admin";
+  status: "active" | "inactive";
   createdAt: string | "";
 };
 

@@ -1,5 +1,5 @@
-import Input from "../ui/Input";
-import type { FormFieldConfig } from "./userForm.config";
+import Input from "../../../components/ui/Input";
+import type { FormFieldConfig } from "../config/userForm.config";
 
 interface FieldProps {
   field: FormFieldConfig;
@@ -22,9 +22,6 @@ const UserFormField = ({ field, value, onChange }: FieldProps) => {
       <div>
         <label>{field.label}</label>
         <select value={value} onChange={(e) => onChange(e.target.value)}>
-          <option value="" disabled>
-            Select {field.label}
-          </option>
           ;
           {field.options.map((opt) => (
             <option key={opt.value} value={opt.value}>

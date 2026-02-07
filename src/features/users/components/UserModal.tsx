@@ -1,5 +1,5 @@
-import type { User } from "../../types/user";
-import ModalLayout from "../ui/ModalLayout";
+import type { User } from "../../../types/user";
+import ModalLayout from "../../../components/ui/ModalLayout";
 import type { UseForm } from "./UserForm";
 import UserForm from "./UserForm";
 
@@ -14,7 +14,12 @@ const UserModal = ({ isOpen, user, onClose, onSave }: UserModalProps) => {
   if (!isOpen) return null;
   return (
     <ModalLayout onClose={onClose}>
-      <UserForm onSave={onSave} user={user} onClose={onClose} />
+      <UserForm
+        key={user?.id ?? "new"}
+        onSave={onSave}
+        user={user}
+        onClose={onClose}
+      />
     </ModalLayout>
   );
 };

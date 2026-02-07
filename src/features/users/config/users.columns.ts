@@ -1,5 +1,5 @@
-import type { User } from "../../types/user";
-import type { Column } from "../../components/table/table.types";
+import type { Column } from "../../../components/table/table.types";
+import type { User } from "../../../types/user";
 
 type UserColumnHandlers = {
   onEdit: (user: User) => void;
