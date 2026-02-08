@@ -27,6 +27,13 @@ The dashboard includes a fully reusable table component with configurable column
 
 ---
 
+## Architecture
+
+- Feature-Sliced Design (FSD)
+- Business logic extracted into custom hooks
+- Reusable UI primitives
+- Configuration-driven forms and tables
+
 ## 🛠 Tech Stack
 
 - **React**

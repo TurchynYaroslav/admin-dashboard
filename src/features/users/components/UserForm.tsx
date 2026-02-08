@@ -4,18 +4,10 @@ import { userFormConfig } from "../config/userForm.config";
 import useUserForm from "../hooks/useUserForm";
 import UserFormField from "./UserFormField";
 
-export type UseForm = {
-  id: string;
-  name: string;
-  email: string;
-  role: "user" | "admin";
-  status: "active" | "inactive";
-  createdAt: string | "";
-};
 
 interface UserFormProps {
   user: User | null;
-  onSave: (user: UseForm) => void;
+  onSave: (user: User) => void;
   onClose: () => void;
 }
 

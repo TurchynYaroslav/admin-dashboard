@@ -1,7 +1,6 @@
 import type { User } from "../../../types/user";
-import type { UseForm } from "../components/UserForm";
 
-export function createEmptyUserForm(): UseForm {
+export function createEmptyUserForm(): User {
   return {
     id: Math.random().toString(36).slice(2, 5),
     name: "",
@@ -12,6 +11,6 @@ export function createEmptyUserForm(): UseForm {
   };
 }
 
-export function mapUserToForm(user: User): UseForm {
+export function mapUserToForm(user: User): User {
   return { ...user };
 }

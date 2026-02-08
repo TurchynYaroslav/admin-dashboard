@@ -2,7 +2,6 @@ import { useCallback, useMemo, useState } from "react";
 import type { User } from "../../../types/user";
 import { initialUsers } from "../mocks/users";
 import { createUsersColumns } from "../config/users.columns";
-import type { UseForm } from "../components/UserForm";
 
 const useUserLogic = () => {
   const [users, setUsers] = useState<User[]>(initialUsers);
@@ -16,32 +15,12 @@ const useUserLogic = () => {
     setIsModalOpen(true);
   };
   const handleSave = useCallback(
-    (userData: UseForm) => {
-      const fieldsToValidate: (keyof UseForm)[] = [
-        "name",
-        "email",
-        "role",
-        "status",
-      ];
-      const isValid = fieldsToValidate.every(
-        (field) => userData[field].trim() !== "",
-      );
-      if (!isValid) return;
-
-      const newUser: User = {
-        id: userData.id,
-        name: userData.name,
-        email: userData.email,
-        role: userData.role,
-        status: userData.status,
-        createdAt: userData.createdAt,
-      };
-
+    (userData: User) => {
       setUsers((prev) => {
         if (selectedUser) {
-          return prev.map((u) => (u.id === newUser.id ? newUser : u));
+          return prev.map((u) => (u.id === userData.id ? userData : u));
         }
-        return [...prev, newUser];
+        return [...prev, userData];
       });
       setIsModalOpen(false);
     },
