@@ -41,31 +41,27 @@ Clone the repository:
 
 ````bash
 git clone https://github.com/your-username/admin-panel.git
-
+````
 
 Install dependencies:
-
-```bash
+````bash
 npm install
-
-#Run the development server:
+````
+Run the development server:
+````
 npm run dev
 ````
+
 
 ## 🛠 Tech Stack
 
 | Tool             | Purpose                         |
 | ---------------- | ------------------------------- |
 | **React**        | UI library                      |
-| ---------------- | ------------------------------- |
 | **TypeScript**   | Static typing & domain modeling |
-| ---------------- | ------------------------------- |
 | **Vite**         | Build tool & dev server         |
-| ---------------- | ------------------------------- |
 | **React Router** | Navigation & routing            |
-| ---------------- | ------------------------------- |
 | **Tailwind CSS** | Utility-first styling           |
-| ---------------- | ------------------------------- |
 
 ## 🧠 Architecture Overview
 
