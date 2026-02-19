@@ -39,33 +39,31 @@ This project provides a clean and scalable interface for **creating, editing, vi
 
 Clone the repository:
 
-````bash
+```bash
 git clone https://github.com/your-username/admin-panel.git
-````
+```
 
 Install dependencies:
-````
-bash
-npm install
 
-#Run the development server:
+```bash
+npm install
+```
+
+Run the development server:
+
+```
 npm run dev
-````
+```
 
 ## 🛠 Tech Stack
 
 | Tool             | Purpose                         |
 | ---------------- | ------------------------------- |
 | **React**        | UI library                      |
-| ---------------- | ------------------------------- |
 | **TypeScript**   | Static typing & domain modeling |
-| ---------------- | ------------------------------- |
 | **Vite**         | Build tool & dev server         |
-| ---------------- | ------------------------------- |
 | **React Router** | Navigation & routing            |
-| ---------------- | ------------------------------- |
 | **Tailwind CSS** | Utility-first styling           |
-| ---------------- | ------------------------------- |
 
 ## 🧠 Architecture Overview
 
@@ -105,7 +103,8 @@ src/
 
 ## 🎯 Project Purpose
 
-This project is built to demonstrate:
+> > > > > > > 05c41c23fa018de29e811eb0a0fd30499468834a
+> > > > > > > This project is built to demonstrate:
 
 - Real-world React state management
 - Strong TypeScript usage in form-heavy interfaces
