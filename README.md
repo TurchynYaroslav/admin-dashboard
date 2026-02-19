@@ -1,81 +1,113 @@
-# Admin Dashboard
+# 🛡️ Admin Management System
 
-Admin dashboard built with React and TypeScript featuring a reusable table system and CRUD functionality.
+A modern, high-performance **administrative dashboard** for managing user accounts.
 
-## ✨ Overview
-
-This project demonstrates how to build a scalable admin dashboard with a strong focus on:
-
-- clean architecture
-- type safety
-- reusable UI components
-- clear separation of responsibilities
-
-The dashboard includes a fully reusable table component with configurable columns and action handling, designed to scale for real-world admin panels.
+This project provides a clean and scalable interface for **creating, editing, viewing, and deleting users**, with a strong focus on **type safety, predictable state management, and reusable UI architecture**.
 
 ---
 
-## 🧩 Features
+## ✨ Key Features
 
-- 📊 Reusable generic table component
-- 🧱 Config-driven column system
-- ✏️ Edit / Delete actions (CRUD-ready)
-- 🧠 Strong TypeScript typing with generics
-- 🗂 Page-level state management
-- 🎨 Styled with Tailwind CSS
-- ⚡ Built with Vite for fast development
+- **User Management**  
+  Full CRUD operations (Create, Read, Update, Delete) for user accounts.
 
----
+- **Dynamic Data Table**  
+  Structured and reusable table component for displaying user data.
 
-## 🛠 Tech Stack
+- **Modal-Based Forms**  
+  User creation and editing via a shared modal with controlled inputs and validation.
 
-- **React**
-- **TypeScript**
-- **Vite**
-- **Tailwind CSS**
-- **React Router**
+- **Configuration-Driven Forms**  
+  Forms are rendered from typed field configurations instead of hardcoded JSX.
 
----
+- **Responsive Layout**  
+  Clean, admin-style layout with a dedicated page header and action toolbar.
 
-## 🧠 Architecture Highlights
-
-- **Pages** manage data and state
-- **Components** focus on presentation only
-- **Reusable Table** is fully generic and data-agnostic
-- **Actions logic** is injected via configuration
-- **Type-safe column definitions** using discriminated unions
-
-This approach allows easy extension (new columns, new entities, backend integration) without refactoring core UI components.
+- **Scalable Architecture**  
+  Feature-based structure designed for long-term maintainability.
 
 ---
 
-## 📁 Project Structure
+## 🚀 Quick Start
 
-```
-src/
-├─ app/ # App-level setup (router, layouts)
-├─ components/ # Reusable UI components
-├─ data/ # Mock data
-├─ pages/ # Route-level components
-├─ services/ # Business logic (future-ready)
-├─ types/ # Shared TypeScript models
-```
+### Prerequisites
 
----
+- Node.js **v18+**
+- npm or yarn
 
-## 🚀 Getting Started
+### Installation
+
+Clone the repository:
+
+````bash
+git clone https://github.com/your-username/admin-panel.git
+````
 
 Install dependencies:
-
-```bash
+````
+bash
 npm install
 
 #Run the development server:
 npm run dev
+````
+
+## 🛠 Tech Stack
+
+| Tool             | Purpose                         |
+| ---------------- | ------------------------------- |
+| **React**        | UI library                      |
+| ---------------- | ------------------------------- |
+| **TypeScript**   | Static typing & domain modeling |
+| ---------------- | ------------------------------- |
+| **Vite**         | Build tool & dev server         |
+| ---------------- | ------------------------------- |
+| **React Router** | Navigation & routing            |
+| ---------------- | ------------------------------- |
+| **Tailwind CSS** | Utility-first styling           |
+| ---------------- | ------------------------------- |
+
+## 🧠 Architecture Overview
+
+The project follows a feature-based architecture, keeping business logic, UI, and shared utilities clearly separated.
+
+```
+src/
+├── entities/    # Core domain models (e.g. User types)
+├── features/    # User-related logic (create, edit, delete)
+├── widgets/     # Page-level UI blocks (Headers, Tables)
+├── shared/      # Reusable UI components (Button, Input, Modal)
+└── pages/       # Route-level components
 ```
 
-## 📌 Notes
+### Key architectural principles
 
-This project is frontend-only and uses mock data to simulate CRUD flows.
-The architecture is designed to allow easy backend integration in the future.
-CRUD flows are implemented using local state to simulate real-world backend interactions.
+#### Domain vs Form separation
+
+- **User** → domain entity (always valid)
+- **UseForm** → form state (can be incomplete)
+
+#### Single source of truth
+
+- User list state is owned by the page-level component
+
+#### Dumb UI components
+
+- UI elements emit events instead of mutating state
+- Business logic lives in parent components
+
+#### Explicit data flow
+
+- Parent components control logic
+- Children remain reusable and predictable
+
+---
+
+## 🎯 Project Purpose
+
+This project is built to demonstrate:
+
+- Real-world React state management
+- Strong TypeScript usage in form-heavy interfaces
+- Clean separation of concerns
+- Scalable patterns for SaaS and admin dashboards
