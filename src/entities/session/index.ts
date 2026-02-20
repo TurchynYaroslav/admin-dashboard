@@ -1,4 +1,3 @@
 export { useSessionStore } from "./model/sessionStore";
 // export { analytics } from "./firebase/config";
-export { app } from "./api/firebase/config";
-export { auth } from "./api/firebase/config";
+export { app, auth, db } from "./api/config";

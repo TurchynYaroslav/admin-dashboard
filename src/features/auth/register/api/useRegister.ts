@@ -1,4 +1,5 @@
 import { auth, useSessionStore } from "@/entities/session";
+import { createUserProfile } from "@/entities/user";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 interface RegisterProps {
@@ -7,7 +8,7 @@ interface RegisterProps {
 }
 
 export const useRegister = () => {
-  const setSession = useSessionStore((s) => s.setSession);
+  const { setSession } = useSessionStore();
 
   const handleRegister = async ({ email, password }: RegisterProps) => {
     try {
@@ -17,7 +18,13 @@ export const useRegister = () => {
         password,
       );
 
-      setSession(UserCredential.user);
+      const user = UserCredential.user;
+
+      await createUserProfile({ uid: user.uid, email });
+
+      setSession(user);
+
+      return { success: true };
     } catch (error) {
       if (error instanceof Error) {
         if (error.message === "Firebase: Error (auth/email-already-in-use).") {

@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { RequiredAuth } from "../ui/RequiredAuth";
 import { PageLayout } from "@/widgets";
-import { UsersPage } from "@/pages/users";
 import { RegisterPage } from "@/pages/register";
 import { GuestGuard } from "..";
 import { LoginPage } from "@/pages/login";
@@ -13,7 +12,7 @@ const routeConfig = [
     children: [
       {
         element: <RequiredAuth />,
-        children: [{ index: true, element: <UsersPage /> }],
+        children: [{ index: true, element: <h1>A</h1> }],
       },
     ],
   },

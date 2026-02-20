@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { signOut, type User } from "firebase/auth";
-import { auth } from "../api/firebase/config";
+import { auth } from "../api/config";
 
 interface isAuth {
   user: User | null;
@@ -14,11 +14,6 @@ export const useSessionStore = create<isAuth>((set) => ({
   isAuth: false,
   setSession: (user) => set({ user, isAuth: !!user }),
   logout: async () => {
-    try {
-      await signOut(auth);
-      set({ user: null, isAuth: false });
-    } catch (error) {
-      console.error("Logout error:", error);
-    }
+    await signOut(auth);
   },
 }));
