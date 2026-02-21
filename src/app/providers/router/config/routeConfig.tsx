@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import { RequiredAuth } from "../ui/RequiredAuth";
-import { PageLayout } from "@/widgets";
+import { RequiredAuth, GuestGuard } from "../";
+import { PageLayout } from "@/widgets/PageLayout";
 import { RegisterPage } from "@/pages/register";
-import { GuestGuard } from "..";
 import { LoginPage } from "@/pages/login";
+import { ForbiddenPage } from "@/pages/forbidden";
 
 const routeConfig = [
   {
@@ -11,8 +11,8 @@ const routeConfig = [
     element: <PageLayout />,
     children: [
       {
-        element: <RequiredAuth />,
-        children: [{ index: true, element: <h1>A</h1> }],
+        element: <RequiredAuth allowedRoles={["admin", "user"]} />,
+        children: [{ index: true, element: <h1>Admin</h1> }],
       },
     ],
   },
@@ -22,6 +22,10 @@ const routeConfig = [
       { path: "/register", element: <RegisterPage /> },
       { path: "/login", element: <LoginPage /> },
     ],
+  },
+  {
+    element: <ForbiddenPage />,
+    path: "/forbidden",
   },
 ];
 

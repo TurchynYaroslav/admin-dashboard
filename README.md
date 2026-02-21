@@ -103,9 +103,6 @@ src/
 
 ## 🎯 Project Purpose
 
-> > > > > > > 05c41c23fa018de29e811eb0a0fd30499468834a
-> > > > > > > This project is built to demonstrate:
-
 - Real-world React state management
 - Strong TypeScript usage in form-heavy interfaces
 - Clean separation of concerns
