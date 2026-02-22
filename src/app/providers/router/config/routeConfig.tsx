@@ -4,6 +4,11 @@ import { PageLayout } from "@/widgets/PageLayout";
 import { RegisterPage } from "@/pages/register";
 import { LoginPage } from "@/pages/login";
 import { ForbiddenPage } from "@/pages/forbidden";
+import { DashboardPage } from "@/pages/dashboard";
+import { SettingsPage } from "@/pages/settingsPage";
+import { UsersPage } from "@/pages/usersPage";
+import { RolesPage } from "@/pages/rolesPage";
+import { LogsPage } from "@/pages/logsPage";
 
 const routeConfig = [
   {
@@ -11,8 +16,22 @@ const routeConfig = [
     element: <PageLayout />,
     children: [
       {
-        element: <RequiredAuth allowedRoles={["admin", "user"]} />,
-        children: [{ index: true, element: <h1>Admin</h1> }],
+        element: <RequiredAuth allowedRoles={["admin"]} />,
+        children: [
+          { path: "/roles", element: <RolesPage /> },
+          { path: "/logs", element: <LogsPage /> },
+        ],
+      },
+      {
+        element: <RequiredAuth allowedRoles={["admin", "manager"]} />,
+        children: [{ path: "/users", element: <UsersPage /> }],
+      },
+      {
+        element: <RequiredAuth allowedRoles={["user", "admin", "manager"]} />,
+        children: [
+          { index: true, element: <DashboardPage /> },
+          { path: "/settings", element: <SettingsPage /> },
+        ],
       },
     ],
   },
