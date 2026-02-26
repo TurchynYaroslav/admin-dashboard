@@ -1,12 +1,14 @@
+import { useUserStore } from "@/entities/user/model/userStore";
 import { useAuthSync } from "../entities/session/lib/useAuthSync";
 
 import { AppRouter } from "./providers/router";
 import "./styles/index.css";
 
 const App = () => {
-  const isReady = useAuthSync();
+  useAuthSync();
+  const isLoading = useUserStore((a) => a.isLoading);
 
-  if (!isReady) return <h1>Loading...</h1>;
+  if (isLoading) return <h1>Loading...</h1>;
 
   return <AppRouter />;
 };
